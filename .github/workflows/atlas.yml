@@ -27,3 +27,5 @@ jobs:
       # You may pin to the exact commit or the version.
       # uses: rodrigo-nogues/github-action-install-atlassian-sdk@4b695bc126676bb923332780bdc3c19d1fe6ce8b
       uses: rodrigo-nogues/github-action-install-atlassian-sdk@v1
+    - name: Run Tests
+      run: atlas-unit-test
