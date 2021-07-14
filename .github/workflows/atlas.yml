@@ -1,26 +1,14 @@
-name: Atlas CI
+name: Java CI with Maven
 
-on:
-  [pull_request, push]
+on: [push, pull_request]
 
 jobs:
-
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 8
-      uses: actions/setup-java@v2
-      with:
-        java-version: '8'
-        distribution: 'adopt'
-    - name: Install Atlassian SDK
-      # You may pin to the exact commit or the version.
-      # uses: rodrigo-nogues/github-action-install-atlassian-sdk@4b695bc126676bb923332780bdc3c19d1fe6ce8b
-      uses: rodrigo-nogues/github-action-install-atlassian-sdk@v1
-    - name: Check
-      run: ls
-    - name: Run Tests
-      run: atlas-compile
+    - name : Checkout repo
+      uses: actions/checkout@v2
+    - name: Run tests in Docker
+      uses: tirasu/jira-test-action@master
