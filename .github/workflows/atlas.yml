@@ -16,16 +16,11 @@ jobs:
       with:
         java-version: '8'
         distribution: 'adopt'
-    - name: Setup Maven
-      # You may pin to the exact commit or the version.
-      # uses: stCarolas/setup-maven@3c9ddfb1c6df927e174580018dd71e774bc7dd48
-      uses: stCarolas/setup-maven@v4.1
-      with:
-        # Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0
-        maven-version: 3.5.4 # optional, default is 3.5.4
     - name: Install Atlassian SDK
       # You may pin to the exact commit or the version.
       # uses: rodrigo-nogues/github-action-install-atlassian-sdk@4b695bc126676bb923332780bdc3c19d1fe6ce8b
       uses: rodrigo-nogues/github-action-install-atlassian-sdk@v1
+    - name: Check
+      run: ls
     - name: Run Tests
-      run: atlas-unit-test
+      run: atlas-compile
